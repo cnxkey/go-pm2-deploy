@@ -15,8 +15,8 @@ import (
 	//   source = "git@gitee.com:zengming00/testgo1.git"
 
 	// 因为是私有仓库，所以要加上.git
-	test "gitee.com/zengming00/testgo1.git"
-	"gitee.com/zengming00/testgo2.git"
+	// test "gitee.com/zengming00/testgo1.git"
+	// "gitee.com/zengming00/testgo2.git"
 	"github.com/zengming00/go-qps"
 )
 
@@ -39,7 +39,6 @@ Host: 192.168.58.142:8888
 Connection: keep-alive
 */
 func main() {
-	test.Foo()
 
 	qp := qps.NewQP(time.Second, 100)
 	http.HandleFunc("/qp", func(w http.ResponseWriter, r *http.Request) {
@@ -60,9 +59,6 @@ func main() {
 		w.Write(bts)
 	})
 
-	http.HandleFunc("/testgo", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(testgo2.Foo()))
-	})
 	// 此代码在telnet中是长连接的
 	// 因为没有设置内容长度，传输会变成 Transfer-Encoding: chunked
 	http.HandleFunc("/1", func(w http.ResponseWriter, r *http.Request) {

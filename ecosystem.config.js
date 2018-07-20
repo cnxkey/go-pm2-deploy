@@ -19,7 +19,7 @@ module.exports = {
             user: 'zengming',
             host: ['192.168.58.142'],
             ref: 'origin/master',
-            repo: 'git@gitee.com:zengming00/testpm2.git',
+            repo: 'https://github.com/zengming00/go-pm2-deploy.git',
             path: '/home/zengming/www/prod', // 整个部署环境的位置
             'pre-deploy': 'dep version && pwd && git reset --hard HEAD',   // 远程服务器部署前执行的命令，在更新代码之前
             'post-deploy': 'cd src/main && dep ensure && go build -o main && pm2 reload pm2/prod.config.js',
@@ -31,7 +31,7 @@ module.exports = {
             user: 'zengming',
             host: ['192.168.58.142'],
             ref: 'origin/master',
-            repo: 'git@gitee.com:zengming00/testpm2.git',
+            repo: 'https://github.com/zengming00/go-pm2-deploy.git',
             path: '/home/zengming/www/dev',
             'pre-deploy': 'dep version && pwd',
             'post-deploy': 'cd src/main && dep ensure && go build -o main && pm2 reload pm2/dev.config.js',
